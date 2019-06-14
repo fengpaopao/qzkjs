@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qzsq.article.mapper.BulletinMapper">
+
+    <resultMap id="getarticle" type="com.qzsq.article.entity.Article">
+        <id property="articleId" column="article_id"></id>
+        <result property="articleCoverImg" column="cover_img"></result>
+        <result property="articleTitle" column="title"></result>
+        <result property="articleContent" column="content"></result>
+        <result property="articleStatusCode" column="status_code"></result>
+        <result property="articlePublishTime" column="publish_time"></result>
+        <result property="articleIsTop" column="is_top"></result>
+        <result property="articleTag" column="article_tag"></result>
+        <result property="articleAuthor" column="article_popular"></result>
+        <result property="articleIsPopular" column="is_popular"></result>
+        <result property="articleCreateTime" column="create_time"></result>
+    </resultMap>
+    <resultMap id="TitleEleven" type="com.qzsq.article.entity.Article">
+        <id property="articleId" column="article_id"></id>
+
+        <result property="articleTitle" column="title"></result>
+        <result property="articleCreateTime" column="create_time"></result>
+    </resultMap>
+    <!--查询社区公告的标题-->
+    <select id="getTitleEleven" resultMap="TitleEleven">
+        select article_id,title,create_time from article_community_announcement  where is_top=0 and status_code=1
+        ORDER BY ABS(NOW() - create_time) ASC
+        limit 6
+    </select>
+
+
+</mapper>

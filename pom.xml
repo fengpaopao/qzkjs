@@ -19,7 +19,7 @@
         <!-- 配置可变版本号 （mybatis、spring、shiro） -->
         <org.mybatis.spring.boot>2.0.1</org.mybatis.spring.boot>
         <!--googlegson-->
-        <com.google.code.gson>2.8.5</com.google.code.gson>
+        <com.google.code.gson>2.8.9</com.google.code.gson>
         <!--shiro-->
         <org.apache.shiro>1.4.1</org.apache.shiro>
         <!--阿里云数据库连接池-->
